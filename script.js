@@ -24,3 +24,4 @@ function changeColorScheme(color) {
     formRange.classList.remove('range-' + oldColor);
     formRange.classList.add('range-' + color);
 }
+

@@ -8,30 +8,43 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to Your Website</h1>
+    <div class="container mt-5">
+        <h1 class="mb-4">Welcome to Your Website</h1>
         
         <!-- Buttons -->
-        <button class="btn btn-primary" id="primaryBtn">Primary Button</button>
-        <button class="btn btn-secondary" id="secondaryBtn">Secondary Button</button>
+        <div class="mb-3">
+            <button class="btn btn-primary" id="primaryBtn">Primary Button</button>
+            <button class="btn btn-secondary ms-3" id="secondaryBtn">Secondary Button</button>
+        </div>
         
         <!-- Switches -->
-        <div class="form-check form-switch">
+        <div class="form-check form-switch mb-3">
             <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
             <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
         </div>
         
         <!-- Sliders -->
-        <input type="range" class="form-range" id="formRange">
+        <div class="mb-3">
+            <input type="range" class="form-range" id="formRange">
+        </div>
         
         <!-- Color Scheme Changer -->
-        <label for="colorSelector">Select Color Scheme:</label>
-        <select id="colorSelector" class="form-select mb-3">
-            <option value="default">Default</option>
-            <option value="blue">Blue</option>
-            <option value="green">Green</option>
-            <option value="purple">Purple</option>
-        </select>
+        <div class="mb-3">
+            <label for="colorSelector">Select Color Scheme:</label>
+            <select id="colorSelector" class="form-select">
+                <option value="default">Default</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="purple">Purple</option>
+            </select>
+        </div>
+        
+        <!-- Filler Content -->
+        <div>
+            <p>This is some filler content to make the page look fuller.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet dui sit amet risus vehicula, eu hendrerit risus volutpat. Curabitur eu orci non massa tempor pretium.</p>
+            <p>Donec ut felis et felis finibus faucibus. Sed sodales nunc at ligula commodo ultricies. Fusce vestibulum, magna in feugiat luctus, leo turpis laoreet elit, in lobortis risus nisi et nisi.</p>
+        </div>
     </div>
 
     <script src="script.js"></script>
