@@ -48,15 +48,40 @@ document.addEventListener('DOMContentLoaded', () => {
     if (service && templates[service]) {
       messageEl.value = templates[service](item);
       if (vehicleEl) vehicleEl.focus();
-      form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (document.referrer && !document.referrer.includes('contact.html')) {
+        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   } catch (e) {}
 })();
 
-// Quick Actions: bubble <-> bar with scroll-direction morph + synced open/close
+// Quick Actions (bubble <-> bar with scroll-direction morph + synced open/close)
 (function(){
   const root = document.querySelector('[data-qa-root]');
   if (!root) return;
+
+  // Inject the sticky markup (keeps HTML pages unchanged)
+  root.innerHTML = `
+  <div class="qa-bubble">
+    <button class="qa-fab" data-qa-toggle aria-label="Open quick actions">⋮</button>
+    <div class="qa-panel qa-panel--closed" data-qa-panel>
+      <div class="qa-card">
+        <a href="contact.html" class="qa-btn qa-btn--ghost">Get a Quote</a>
+        <a href="tel:REPLACE_WITH_YOUR_NUMBER" class="qa-btn qa-btn--solid">Call Now</a>
+        <div class="qa-note">Appointment only</div>
+      </div>
+    </div>
+  </div>
+  <div class="qa-bar qa-hidden" data-qa-barwrap>
+    <div class="qa-bar-inner" data-qa-bar>
+      <div class="qa-bar-grid">
+        <a href="contact.html" class="qa-bar-btn">Get a Quote</a>
+        <a href="tel:REPLACE_WITH_YOUR_NUMBER" class="qa-bar-btn qa-bar-btn--solid">Call Now</a>
+      </div>
+      <div class="qa-bar-note">Appointment only</div>
+    </div>
+  </div>
+`;
 
   const fab = root.querySelector('[data-qa-toggle]');
   const panel = root.querySelector('[data-qa-panel]');
@@ -83,48 +108,33 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mode === next) return;
     mode = next;
     if (mode === 'bubble') {
-      // show fab bubble, hide rectangular bar
       barWrap.classList.add('qa-hidden');
     } else {
-      // show rectangular bar, hide panel if open
       closePanel();
       barWrap.classList.remove('qa-hidden');
     }
   };
 
-  // Toggle mini panel on bubble
   if (fab && panel) {
-    fab.addEventListener('click', () => {
-      open ? closePanel() : openPanel();
-    });
+    fab.addEventListener('click', () => (open ? closePanel() : openPanel()));
   }
 
-  // Close any open UI when scrolling, and morph by direction
   const onScroll = () => {
     const y = window.scrollY;
     const dir = y > lastY ? 'down' : 'up';
     lastY = y;
-
-    if (open) closePanel();             // close mini panel if open
-    // Morph:
-    // - scrolling down -> bubble
-    // - scrolling up   -> bar (splits into two buttons + disclaimer)
+    if (open) closePanel();
     setMode(dir === 'down' ? 'bubble' : 'bar');
   };
 
-  // Throttle via rAF for smoothness
   let ticking = false;
   window.addEventListener('scroll', () => {
     if (ticking) return;
     ticking = true;
-    requestAnimationFrame(() => {
-      onScroll();
-      ticking = false;
-    });
+    requestAnimationFrame(() => { onScroll(); ticking = false; });
   }, { passive:true });
 
   // init
   setMode('bubble');
   closePanel();
 })();
-
