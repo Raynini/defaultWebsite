@@ -1,19 +1,24 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Contact • RyCo LLC</title>
-<meta name="description" content="Budget‑friendly Vehicle Repair, Modifications & Parts Sales in Manchester, NH.">
-<meta property="og:title" content="Contact • RyCo LLC"><meta property="og:description" content="Budget‑friendly Vehicle Repair, Modifications & Parts Sales in Manchester, NH.">
-<meta property="og:type" content="website"><meta property="og:image" content="assets/hero-grid.svg">
-<link rel="icon" href="assets/logo.svg">
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link href="css/styles.css" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact & Booking • RyCo LLC</title>
+  <meta name="description" content="Budget‑friendly Vehicle Repair, Modifications & Parts Sales in Manchester, NH.">
+  <meta property="og:title" content="Contact & Booking • RyCo LLC">
+  <meta property="og:description" content="Budget‑friendly Vehicle Repair, Modifications & Parts Sales in Manchester, NH.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/hero-grid.svg">
+  <link rel="icon" href="assets/logo.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body class="bg-gradient-to-b from-neutral-950 via-neutral-900 to-neutral-950 text-neutral-100 font-[Inter]">
+
 <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/70 border-b border-neutral-800">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
@@ -43,10 +48,41 @@
     </div>
   </div>
 </header>
+
 <section class="py-16">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <h1 class="text-3xl font-bold" data-aos="fade-up">Smoke test</h1>
-    <p class="text-white/70 mt-2">This build focuses on the sticky button fix only.</p>
+    <h1 class="text-3xl font-bold" data-aos="fade-up">Request a Quote</h1>
+    <p class="text-white/70 mt-2" data-aos="fade-up" data-aos-delay="50">Tell us your car, goals, and timeline. We’ll reply within 1 business day.</p>
+    <div class="grid lg:grid-cols-2 gap-8 mt-8">
+      <form class="rounded-3xl border border-white/10 bg-white/5 p-6 grid gap-4" action="https://formspree.io/f/xbldzkgx" method="POST" data-aos="fade-right">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <input class="rounded-xl bg-black/30 border border-white/10 px-3 py-2" placeholder="Name" name="name" required />
+          <input class="rounded-xl bg-black/30 border border-white/10 px-3 py-2" placeholder="Email" type="email" name="email" required />
+        </div>
+        <input class="rounded-xl bg-black/30 border border-white/10 px-3 py-2" placeholder="Phone (optional)" name="phone" />
+        <input class="rounded-xl bg-black/30 border border-white/10 px-3 py-2" placeholder="Vehicle (Year/Make/Model)" name="vehicle" />
+        <textarea class="rounded-xl bg-black/30 border border-white/10 px-3 py-2 min-h-28" placeholder="What do you need? Mods, repair, parts sourcing, etc." name="message" required></textarea>
+        <button class="rounded-2xl bg-purple-600 px-5 py-3 text-sm font-semibold hover:bg-purple-500 transition w-max">Send Request</button>
+        <div class="text-xs text-white/50">By submitting, you agree to our <a href="terms.html" class="underline">Terms</a>, <a href="privacy.html" class="underline">Privacy</a>, and <a href="how-we-work.html" class="underline">How We Work</a>.</div>
+      </form>
+      <div class="grid gap-4" data-aos="fade-left">
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+          <div class="flex items-center gap-3 text-white/80"><span>📞</span> <span>(XXX) XXX‑XXXX</span></div>
+          <div class="mt-2 flex items-center gap-3 text-white/80"><span>✉️</span> <span>hello@rycoauto.com</span></div>
+          <div class="mt-2 flex items-center gap-3 text-white/80"><span>📍</span> <span>Manchester, NH</span></div>
+          <p class="mt-4 text-sm text-white/60">Hours: Appointment only</p>
+        </div>
+        <section class="rounded-3xl border border-white/10 bg-white/5 p-4 text-sm text-white/70">
+          <div class="font-semibold text-white mb-2">What to expect</div>
+          <ul class="list-disc list-inside space-y-1">
+            <li>Appointment-only scheduling.</li>
+            <li>Small jobs typically booked within 1–3 days.</li>
+            <li>Larger work quoted with timeline and milestones before start.</li>
+            <li>Mobile diagnostics within 25 miles. <span class="text-white">Service call fee: $60, credited if you book the repair.</span></li>
+          </ul>
+        </section>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -60,8 +96,8 @@
     </div>
   </div>
 </footer>
-<!-- Sticky quick actions root (mobile only) -->
-<div id="qa-root" class="fixed bottom-4 right-4 z-50 md:hidden" data-qa-root></div>
+<!-- Sticky bar root (mobile only) -->
+<div id="qa-root" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden" data-qa-root></div>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="js/main.js"></script>
 </body>

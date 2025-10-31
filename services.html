@@ -1,19 +1,24 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Services • RyCo LLC</title>
-<meta name="description" content="Budget‑friendly Vehicle Repair, Modifications & Parts Sales in Manchester, NH.">
-<meta property="og:title" content="Services • RyCo LLC"><meta property="og:description" content="Budget‑friendly Vehicle Repair, Modifications & Parts Sales in Manchester, NH.">
-<meta property="og:type" content="website"><meta property="og:image" content="assets/hero-grid.svg">
-<link rel="icon" href="assets/logo.svg">
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link href="css/styles.css" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services • RyCo LLC</title>
+  <meta name="description" content="Budget‑friendly Vehicle Repair, Modifications & Parts Sales in Manchester, NH.">
+  <meta property="og:title" content="Services • RyCo LLC">
+  <meta property="og:description" content="Budget‑friendly Vehicle Repair, Modifications & Parts Sales in Manchester, NH.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/hero-grid.svg">
+  <link rel="icon" href="assets/logo.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body class="bg-gradient-to-b from-neutral-950 via-neutral-900 to-neutral-950 text-neutral-100 font-[Inter]">
+
 <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/70 border-b border-neutral-800">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
@@ -43,10 +48,39 @@
     </div>
   </div>
 </header>
+
 <section class="py-16">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <h1 class="text-3xl font-bold" data-aos="fade-up">Smoke test</h1>
-    <p class="text-white/70 mt-2">This build focuses on the sticky button fix only.</p>
+    <h1 class="text-3xl font-bold" data-aos="fade-up">Services & Pricing</h1>
+    <p class="text-white/70 mt-2" data-aos="fade-up" data-aos-delay="50">
+      Transparent rates. We quote before we wrench. Parts supplied by you or sourced by us.
+    </p>
+    <div class="grid lg:grid-cols-3 gap-6 mt-8">
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6" data-aos="zoom-in">
+        <h2 class="font-semibold text-lg">General Repair</h2>
+        <ul class="mt-3 text-sm text-white/70 space-y-2">
+          <li><a class="hover:underline" href="contact.html?service=General%20Repair&item=Brake%20pads%2Frotors">Brake pads/rotors — <span class="text-white">from $180 labor/axle</span></a></li>
+          <li><a class="hover:underline" href="contact.html?service=General%20Repair&item=Fluid%20service">Fluid service — <span class="text-white">from $120</span></a></li>
+          <li><a class="hover:underline" href="contact.html?service=General%20Repair&item=Diagnostics">Diagnostics — <span class="text-white">$80/hr</span></a></li>
+        </ul>
+      </div>
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6" data-aos="zoom-in" data-aos-delay="50">
+        <h2 class="font-semibold text-lg">Suspension & Handling</h2>
+        <ul class="mt-3 text-sm text-white/70 space-y-2">
+          <li><a class="hover:underline" href="contact.html?service=Performance%20Mods&item=Springs%2FCoilovers">Springs/coilovers — <span class="text-white">from $300</span></a></li>
+          <li><a class="hover:underline" href="contact.html?service=Performance%20Mods&item=Bushings">Bushings — <span class="text-white">quote</span></a></li>
+          <li><a class="hover:underline" href="contact.html?service=Performance%20Mods&item=Alignment%20Setup">Alignment setup — <span class="text-white">quote</span></a></li>
+        </ul>
+      </div>
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6" data-aos="zoom-in" data-aos-delay="100">
+        <h2 class="font-semibold text-lg">Parts Sourcing</h2>
+        <ul class="mt-3 text-sm text-white/70 space-y-2">
+          <li><a class="hover:underline" href="contact.html?service=Parts%20Sales&item=OEM">OEM — <span class="text-white">quote</span></a></li>
+          <li><a class="hover:underline" href="contact.html?service=Parts%20Sales&item=Preloved">Preloved — <span class="text-white">inventory rotates</span></a></li>
+          <li><a class="hover:underline" href="contact.html?service=Parts%20Sales&item=Special%20sourcing">Special sourcing — <span class="text-white">$50 finder’s fee</span></a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -60,8 +94,8 @@
     </div>
   </div>
 </footer>
-<!-- Sticky quick actions root (mobile only) -->
-<div id="qa-root" class="fixed bottom-4 right-4 z-50 md:hidden" data-qa-root></div>
+<!-- Sticky bar root (mobile only) -->
+<div id="qa-root" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden" data-qa-root></div>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="js/main.js"></script>
 </body>
