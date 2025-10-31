@@ -53,10 +53,78 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch (e) {}
 })();
 
-// Quick Actions toggle
+// Quick Actions: bubble <-> bar with scroll-direction morph + synced open/close
 (function(){
-  const btn = document.querySelector('[data-qa-toggle]');
-  const panel = document.querySelector('[data-qa-panel]');
-  if (!btn || !panel) return;
-  btn.addEventListener('click', () => panel.classList.toggle('hidden'));
+  const root = document.querySelector('[data-qa-root]');
+  if (!root) return;
+
+  const fab = root.querySelector('[data-qa-toggle]');
+  const panel = root.querySelector('[data-qa-panel]');
+  const barWrap = root.querySelector('[data-qa-barwrap]');
+  const bar = root.querySelector('[data-qa-bar]');
+
+  let mode = 'bubble'; // 'bubble' | 'bar'
+  let open = false;
+  let lastY = window.scrollY;
+
+  const openPanel = () => {
+    panel.classList.remove('qa-panel--closed');
+    panel.classList.add('qa-panel--open');
+    open = true;
+  };
+
+  const closePanel = () => {
+    panel.classList.remove('qa-panel--open');
+    panel.classList.add('qa-panel--closed');
+    open = false;
+  };
+
+  const setMode = (next) => {
+    if (mode === next) return;
+    mode = next;
+    if (mode === 'bubble') {
+      // show fab bubble, hide rectangular bar
+      barWrap.classList.add('qa-hidden');
+    } else {
+      // show rectangular bar, hide panel if open
+      closePanel();
+      barWrap.classList.remove('qa-hidden');
+    }
+  };
+
+  // Toggle mini panel on bubble
+  if (fab && panel) {
+    fab.addEventListener('click', () => {
+      open ? closePanel() : openPanel();
+    });
+  }
+
+  // Close any open UI when scrolling, and morph by direction
+  const onScroll = () => {
+    const y = window.scrollY;
+    const dir = y > lastY ? 'down' : 'up';
+    lastY = y;
+
+    if (open) closePanel();             // close mini panel if open
+    // Morph:
+    // - scrolling down -> bubble
+    // - scrolling up   -> bar (splits into two buttons + disclaimer)
+    setMode(dir === 'down' ? 'bubble' : 'bar');
+  };
+
+  // Throttle via rAF for smoothness
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      onScroll();
+      ticking = false;
+    });
+  }, { passive:true });
+
+  // init
+  setMode('bubble');
+  closePanel();
 })();
+
