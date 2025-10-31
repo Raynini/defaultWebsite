@@ -6,3 +6,62 @@ html{scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){
   *{animation:none !important; transition:none !important}
 }
+
+/* ===== Quick Actions (bubble <-> bar) ===== */
+[data-qa-root]{ /* container */ }
+
+.qa-fab{
+  width:3.5rem;height:3.5rem;border-radius:9999px;
+  background:#7c3aed;color:white;display:flex;align-items:center;justify-content:center;
+  font-size:1.25rem;box-shadow:0 12px 30px rgba(0,0,0,.35);
+  transition:transform .25s ease, opacity .25s ease;
+}
+
+.qa-card{
+  width:12rem;background:rgba(17,17,17,.95);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.08);border-radius:1rem;padding:.5rem;
+  box-shadow:0 20px 50px rgba(0,0,0,.5);
+}
+
+.qa-panel{ transform-origin: top right; transition: opacity .2s ease, transform .2s ease; margin-top:.5rem; }
+.qa-panel--closed{ opacity:0; transform:scale(.95); pointer-events:none; }
+.qa-panel--open{ opacity:1; transform:scale(1); pointer-events:auto; }
+
+.qa-btn{
+  display:block;width:100%;text-align:center;font-weight:700;
+  padding:.5rem 1rem;border-radius:.75rem;border:1px solid rgba(255,255,255,.08);
+  transition:background .2s ease;
+}
+.qa-btn--solid{ background:rgba(255,255,255,.08); }
+.qa-btn--solid:hover{ background:rgba(255,255,255,.14); }
+.qa-btn--ghost:hover{ background:rgba(255,255,255,.05); }
+
+.qa-note{ font-size:.625rem;color:rgba(255,255,255,.5);text-align:center;margin-top:.5rem; }
+
+.qa-bar{ transition:opacity .25s ease, transform .25s ease; }
+.qa-hidden{ opacity:0; transform:translateY(20px); pointer-events:none; }
+.qa-bar-inner{
+  width:calc(100vw - 2rem); max-width:420px; overflow:hidden;
+  background:rgba(17,17,17,.95); backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.08); border-radius:1rem;
+  box-shadow:0 20px 50px rgba(0,0,0,.5);
+}
+
+.qa-bar-grid{ display:grid; grid-template-columns:1fr 1fr; }
+.qa-bar-btn{
+  text-align:center; font-weight:700; padding:.75rem 1rem; display:block;
+  transition:background .2s ease;
+}
+.qa-bar-btn:hover{ background:rgba(255,255,255,.05); }
+.qa-bar-btn--solid{ background:rgba(255,255,255,.10); }
+.qa-bar-btn--solid:hover{ background:rgba(255,255,255,.15); }
+
+.qa-bar-note{
+  font-size:.625rem; color:rgba(255,255,255,.5); text-align:center;
+  padding:.5rem .75rem; border-top:1px solid rgba(255,255,255,.08);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .qa-fab, .qa-bar, .qa-panel{ transition:none !important; }
+}
